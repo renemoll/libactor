@@ -34,7 +34,7 @@ public:
 		{
 			return m_payload.message();
 		}
-	private:
+	// private:
 		T m_payload;
 	};
 
@@ -95,4 +95,6 @@ int main()
 	std::cout << "queue size: " << g_queue.size() << std::endl;;
 	std::cout << "queue item 1: " << g_queue.front().message() << std::endl;;
 	std::cout << "queue item 2: " << g_queue.back().message() << std::endl;;
+
+	return 0;
 }
