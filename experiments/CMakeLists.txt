@@ -1,2 +1,3 @@
 add_subdirectory(01_queue_messages)
 add_subdirectory(02_generate_call_functions)
+add_subdirectory(03_process_message_queue)
