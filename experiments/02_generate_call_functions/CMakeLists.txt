@@ -1,4 +1,4 @@
 
-add_executable(example_02_call_functions
+add_executable(02_call_functions
 	main.cpp
 )

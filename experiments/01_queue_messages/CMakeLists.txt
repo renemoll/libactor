@@ -1,4 +1,4 @@
 
-add_executable(example_01_queue_messages
+add_executable(01_queue_messages
 	main.cpp
 )
