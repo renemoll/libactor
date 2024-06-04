@@ -1,0 +1,20 @@
+name: Compilation
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build-ubuntu:
+     runs-on: ubuntu-22.04
+     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'          
+
+      - name: compile
+        run: |
+          pip install bob-the-builder
+          bob build
