@@ -28,7 +28,7 @@ set(CMAKE_CXX_EXTENSIONS Off)
 #
 # Todo: only set BOB_USE_RTTI for specific targets
 #
-set(BOB_USE_RTTI On)
+set(BOB_USE_RTTI Off)
 set(BOB_USER_VERSION_HEADER "${CMAKE_CURRENT_LIST_DIR}/cmake/version.in.h")
 include(bob)
 
