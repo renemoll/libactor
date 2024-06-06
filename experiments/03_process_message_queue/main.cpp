@@ -24,7 +24,7 @@ struct Message1
 	std::string m_message;
 };
 
-void handleMessage1(Message1& msg) {
+void handleMessage1(const Message1& msg) {
 	std::cout << "Msg1: " << msg.m_message << std::endl;
 }
 
@@ -44,7 +44,7 @@ struct Message2
 	int m_code;
 };
 
-void handleMessage2(Message2& msg) {
+void handleMessage2(const Message2& msg) {
 	std::cout << "Msg2: " << msg.m_message << " - the code: " << msg.m_code << std::endl;
 }
 
@@ -62,8 +62,9 @@ auto generate(T f) {
 	using f_msg = typename f_details::msg_type;
 
 	return [f](Envelope& msg){
-		auto m = dynamic_cast<const Envelope::EnvelopedMessage<f_msg>*>(msg.m_msg.get())->m_payload;
-		f(m);
+		auto m = dynamic_cast<const Envelope::EnvelopedMessage<f_msg>*>(msg.m_msg.get());
+		if (m)
+			f(m->m_payload);
 	};
 }
 

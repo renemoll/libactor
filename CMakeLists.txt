@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.21.0)
+cmake_policy(VERSION 3.21)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 #
 # [BOB] This is needed right here to download the toolchain files
@@ -14,16 +16,25 @@ project(libactor
 		CXX C ASM
 )
 
-# set(CMAKE_C_STANDARD 17)
-# set(CMAKE_C_STANDARD_REQUIRED ON)
-# set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED On)
+set(CMAKE_C_EXTENSIONS Off)
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED On)
+set(CMAKE_CXX_EXTENSIONS Off)
 
-set(USER_VERSION_HEADER "${CMAKE_CURRENT_LIST_DIR}/cmake/version.in.h")
+#
+# [BOB] Configure the build
+#
+# Todo: only set BOB_USE_RTTI for specific targets
+#
+set(BOB_USE_RTTI On)
+set(BOB_USER_VERSION_HEADER "${CMAKE_CURRENT_LIST_DIR}/cmake/version.in.h")
 include(bob)
 
+#
+# Build the project
+#
 if (PROJECT_IS_TOP_LEVEL)
 	add_subdirectory(experiments)
 endif()

@@ -95,7 +95,7 @@ struct function_traits :
 template <typename T>
 auto generate(T f) {
     using f_details = function_traits<std::remove_pointer_t<decltype(f)>>;
-    using f_arg = typename f_details::argument_type;
+    // using f_arg = typename f_details::argument_type;
 	using f_msg = typename f_details::msg_type;
 
 	return [f](Envelope& msg){

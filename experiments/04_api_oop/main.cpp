@@ -45,8 +45,8 @@ class HandlerBase {
 public:
 	virtual ~HandlerBase() = default;
 
-	virtual void onMessage1(const Message1& msg) {};
-	virtual void onMessage2(const Message2& msg) {};
+	virtual void onMessage1(const Message1&) {};
+	virtual void onMessage2(const Message2&) {};
 };
 
 class Handler: public HandlerBase {
